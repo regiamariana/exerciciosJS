@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="./css/css_pokemon.css" />
+    <title>pokémonnnn</title>
+</head>
+
+<body>
+    <h1>Busque seu Pokémon</h1>
+
+    <input id="pesquisaPoke" type="text" placeholder="Digite o nome/habilidade do pokemon">
+    <input id="btnProcurar" type="submit" value="Procurar!">
+    <h2>Você quer pesquisar por:</h2>
+    <div>
+        <input type="checkbox" id="pokemon" name="pokemon" checked>
+        <label for="pokemon">Pokemon</label>
+    </div>
+
+    <div>
+        <input type="checkbox" id="habilidade" name="habilidade">
+        <label for="habilidade">habilidade</label>
+    </div>
+
+    <table>
+        <thead id="tabela-lista">
+            <tr>
+                <th>nome</th>
+                <th>habilidade</th>
+                <th>img</th>
+                <th>width</th>
+                <th>height</th>
+            </tr>
+        </thead>
+
+        <tbody id="tabela-poke">
+
+        </tbody>
+    </table>
+
+
+    <!-- function = método -->
+
+    <script>
+        const pesquisaPoke = document.querySelector('#pesquisaPoke');
+        const btnProcurar = document.querySelector('#btnProcurar');
+        const tabela = document.querySelector('#tabela-poke');
+        //"campeao"
+        //function = bloco q vai exercer algo
+        btnProcurar.addEventListener('click', function(event){
+            //let = execute
+            let url = 'https://pokeapi.co/api/v2/pokemon/'+ pesquisaPoke.value;
+
+            fetch(url)
+                //fetch = função
+                //faz tudo p baixo dos panos
+                .then(resposta => resposta.json())
+                //transformar data para jeffinho
+                .then(data => construirTabela(data))
+                //colocar o jeff na tabela
+                .catch(erro => console.log(erro));
+        });
+
+    
+            function construirTabela(pokemon) {
+
+               
+
+                    const tr = document.createElement('tr');
+                    //document, quero criar um tr
+                    const td_id = document.createElement('td');
+                    const td_nome = document.createElement('td');
+                    const td_width = document.createElement('td');
+                    const td_height = document.createElement('td');
+                    const td_img = document.createElement('td');
+                    const img = document.createElement('img');
+                    img.setAttribute('src', pokemon.sprites.front_default);
+
+                    td_id.textContent = pokemon.id;
+                    td_nome.textContent = pokemon.name;
+                    td_width.textContent = pokemon.weight;
+                    td_height.textContent = pokemon.height;
+
+
+
+                    tr.appendChild(td_id);
+                    tr.appendChild(td_nome);
+                    tr.appendChild(td_width);
+                    tr.appendChild(td_height);
+                    td_img.appendChild(img);
+                    tabela.appendChild(tr);
+                
+            }
+        
+    </script>
+</body>
+
+</html>
