@@ -11,7 +11,13 @@
 </head>
 
 <body>
-    <h1>Busque seu Pokémon</h1>
+    <section id="tt">
+        <div class="title">
+    
+            <h1 class="busque">Busque seu Pokémon</h1>
+        </div>
+
+    </section>
 
     <input id="pesquisaPoke" type="text" placeholder="Digite o nome/habilidade do pokemon">
     <input id="btnProcurar" type="submit" value="Procurar!">
@@ -29,11 +35,11 @@
     <table>
         <thead id="tabela-lista">
             <tr>
+                <th>número</th>
                 <th>nome</th>
-                <th>habilidade</th>
-                <th>img</th>
-                <th>width</th>
-                <th>height</th>
+                <th>imagem</th>
+                <th>peso</th>
+                <th>altura</th>
             </tr>
         </thead>
 
@@ -74,14 +80,15 @@
                     //document, quero criar um tr
                     const td_id = document.createElement('td');
                     const td_nome = document.createElement('td');
-                    const td_width = document.createElement('td');
-                    const td_height = document.createElement('td');
                     const td_img = document.createElement('td');
                     const img = document.createElement('img');
                     img.setAttribute('src', pokemon.sprites.front_default);
+                    const td_width = document.createElement('td');
+                    const td_height = document.createElement('td');
 
                     td_id.textContent = pokemon.id;
                     td_nome.textContent = pokemon.name;
+                    td_img.textContent = img;
                     td_width.textContent = pokemon.weight;
                     td_height.textContent = pokemon.height;
 
@@ -89,9 +96,9 @@
 
                     tr.appendChild(td_id);
                     tr.appendChild(td_nome);
+                    tr.appendChild(img);
                     tr.appendChild(td_width);
                     tr.appendChild(td_height);
-                    td_img.appendChild(img);
                     tabela.appendChild(tr);
                 
             }
