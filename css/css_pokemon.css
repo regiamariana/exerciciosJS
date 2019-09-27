@@ -1,16 +1,99 @@
 * {
-background: #ffffff url(https://jllsly.com/wallpapers/pokemon-wallpaper-high-quality-Is-Cool-Wallpapers-1.jpg) no-repeat right top fixed;
+background: #ffffff url(http://pavbca.com/walldb/original/8/d/e/383356.jpg) no-repeat right top fixed;
+
 
 
 }
 
 
-.title {
-padding-left: 500px;
+#tt {
+width: 100%;
+height: 100px;
+
+
 
 }
 
 
 .busque{
+color: white;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+font-size: 46px;
+text-align: center;
+
+ 
+}
+
+.aigabi {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+   
+}
+#pesquisaPoke{
     
+    width: 500px;
+    background: #ffffff;
+    border-radius: 10px;
+    border: none;
+    height: 30px;
+    
+    
+}
+
+#btnProcurar{
+    color: black;
+    width: 100px;
+    background: #ffffff;
+    border-radius: 10px;
+    border: none;
+    height: 30px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+}
+
+/* ATENÇÃO SEMPRE COLOCAR 100% NAS COISA PFFFFF */
+
+table#tabela-lista{
+    width: 100%;
+}
+
+#tabela-lista th,  #tabela-lista td, #tabela-lista tr{
+    text-align: center;
+    padding-top: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #ffffff;
+    font-size: 25px;
+}
+#tabela-lista td, #tabela-lista tr{
+    text-align: center;
+    padding-top: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: black;
+}
+
+/* .table th, .table td { 
+    text-align: left; 
+    padding: 0.25em;
+  } */
+
+
+.oi{
+    width: 100%;
+    padding-top: 30px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #ffffff;
+}
+
+
+.bot1 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: black;
+    font-size: 15px;
+}
+
+.bot2 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: black;
+    font-size: 15px;
 }
