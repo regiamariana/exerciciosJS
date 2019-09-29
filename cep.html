@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/css_cep.css">
+    <title>Buscador de Cep</title>
+</head>
+<body>
+    <h1>Busque seu CEP</h1>
+
+    <input type="text" id="pesquisaCep" placeholder="digite seu cep">
+    <input type="submit" id="btnProcurar" value="Procurar">
+
+    <table id="tabela">
+        <thead>
+            <tr>
+                <th>cep</th>
+                <th>logradouro</th>
+                <th>complemento</th>
+                <th>bairro</th>
+                <th>localidade</th>
+                <th>uf</th>
+                <th>unidade</th>
+                <th>ibge</th>
+                <th>gia</th>
+            </tr>
+        </thead>
+        <tbody id="tabela-corpo">
+
+        </tbody>
+
+
+
+        <script>
+            const pesquisaCep = document.querySelector('#pesquisaCep');
+            const btnProcurar = document.querySelector('#btnProcurar');
+            const tabela_corpo = document.querySelector('#tabela-corpo');
+
+            btnProcurar.addEventListener('click', function (event) {
+                let url = 'https://viacep.com.br/ws/'+pesquisaCep.value+'/json';
+
+                fetch(url)
+                .then(promessa => promessa.json())
+                .then(data => construirTabela(data))
+                .catch(erro => console.log(erro));
+            });
+
+            function construirTabela(cep) {
+                const tr = document.createElement('tr')
+                const td_cep = document.createElement('td');
+                const td_logradouro = document.createElement('td');
+                const td_complemento = document.createElement('td');
+                const td_bairro = document.createElement('td');
+                const td_localidade = document.createElement('td');
+                const td_uf = document.createElement('td');
+                const td_unidade = document.createElement('td');
+                const td_ibge = document.createElement('td');
+                const td_gia = document.createElement('td');
+
+                td_cep.textContent = cep.cep;
+                td_logradouro.textContent = cep.logradouro;
+                td_complemento.textContent = cep.complemento;
+                td_bairro.textContent = cep.bairro;
+                td_localidade.textContent = cep.localidade;
+                td_uf.textContent = cep.uf;
+                td_unidade.textContent = cep.unidade;
+                td_ibge.textContent = cep.ibge;
+                td_gia.textContent = cep.gia;
+
+                tr.appendChild(td_cep);
+                tr.appendChild(td_logradouro);
+                tr.appendChild(td_complemento);
+                tr.appendChild(td_bairro);
+                tr.appendChild(td_localidade);
+                tr.appendChild(td_uf);
+                tr.appendChild(td_unidade);
+                tr.appendChild(td_ibge);
+                tr.appendChild(td_gia);
+                tabela_corpo.appendChild(tr);
+
+            }
+        </script>
+    </table>
+</body>
+</html>

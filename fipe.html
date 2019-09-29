@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>aaaaaa</title>
+</head>
+<body>
+
+    <h1>esta aberta a reuniao dos corno</h1>
+    <img src="./img/reuniao.jpg" alt="aa">
+    <select name="Marca" id="marca">
+        <option value>--escolha sua marca</option>
+
+    
+    </select>
+    <h2>DEU CERTOOOOOOOOOOOOOOOOOOOOOOOO</h2>
+    <table id="tabela-lista">
+            <thead >
+                <tr class="a">
+                    <th>id</th>
+                    <th>modelo</th>
+                </tr>
+            </thead>
+    
+            <tbody id="tabela-corpo">
+    
+            </tbody>
+        </table>
+
+
+    <script>
+        const marca = document.querySelector('#marca');
+        const modelo = document.querySelector('#tabela-corpo');
+        window.onload = function(){
+            let url = 'https://parallelum.com.br/fipe/api/v1/carros/marcas';
+            
+            fetch(url)
+            .then( resposta => resposta.json())
+            .then( data => construirSelect(data))
+            .catch( erro => console.log(erro));
+
+            function construirSelect(data) {
+                data.forEach(element => {
+                    const select = document.createElement('select');
+                    const option = document.createElement('option')
+
+                    option.textContent = element.nome;
+                    option.setAttribute('value', element.codigo)
+
+                    marca.appendChild(option);
+                   
+                });
+            }
+        }
+        // document.getElementById('#marca');
+        marca.addEventListener('change', function(evento) {	
+            
+            // console.log(marca.options[marca.selectedIndex].value);
+            // console.log(marca.options[select.selectedIndex].value)
+
+            fetch("https://parallelum.com.br/fipe/api/v1/carros/marcas/"+marca.options[marca.selectedIndex].value+"/modelos")
+            .then( resposta => resposta.json())
+            .then( data => construirTabela(data))
+            .catch( erro => console.log(erro));
+
+        });
+            function construirTabela(modelos) {
+              modelos.modelos.forEach ( element => {
+              let tr = document.createElement('tr');
+              let td_id = document.createElement('td');
+              let td_nome = document.createElement('td');
+
+              td_id.textContent = element.codigo;
+              td_nome.textContent = element.nome;
+                
+              tr.appendChild(td_id);
+              tr.appendChild(td_nome);
+              modelo.appendChild(tr);
+
+
+                })
+            }
+
+    </script>
+<!--  -->
+</body>
+</html>
