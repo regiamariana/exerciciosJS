@@ -1,1 +1,86 @@
-*}
+*{
+    background: #ffffff url(http://www.bussoladainovacao.org.br/images/back/background-indicadores.jpg) no-repeat right top fixed;
+}
+
+#title-section{
+    width: 100%;
+    /* display: flex; */
+    height: 50px;
+}
+
+.title{
+    
+    color: #fff;
+    text-align: center;
+    font-size: 46px;
+    font-family: 'Manjari', sans-serif;
+}
+
+#img{
+    width: 100%;
+    text-align: center;
+    align-content: center;
+    height: 70px;
+}
+
+#img img{
+    height: 10px;
+    width: 500px;
+    
+    
+}
+
+
+#inputs{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 85px;
+}
+
+#pesquisaCep{
+    width: 500px;
+    background: #fff;
+    border-radius: 10px;
+    border: none;
+    height: 30px;
+    font-family: 'Manjari', sans-serif;
+    font-size: 20px;
+}
+
+#btnProcurar{
+    color: black;
+    width: 100px;
+    background: #fff;
+    border-radius: 10px;
+    border: none;
+    height: 30px;
+    font-family: 'Manjari', sans-serif;
+    font-size: 20px;
+    align-content: center;
+}
+
+
+
+#tabela{
+    width: 100%;
+    background: white;
+    
+    height: 100px;
+}
+
+#th{
+    justify-content: space-between;
+    font-family: 'Manjari', sans-serif;
+    font-size: 20px;
+    color: #fff
+    
+}
+
+#tabela-corpo{
+    justify-content: space-between;
+    font-family: 'Manjari', sans-serif;
+    font-size: 28px;
+    color: #fff;
+    background: #ffffff;
+}
