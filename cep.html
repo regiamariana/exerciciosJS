@@ -10,42 +10,45 @@
     <title>Buscador de Cep</title>
 </head>
 <body>
-    <section id="title-section"> 
+    <div class="app">
 
-        <h1 class="title">Busque seu CEP</h1>
-    </section>
-
-    <div  id="img">
-        <img  src="http://sga.sites.uff.br/wp-content/uploads/sites/136/2017/03/barra-branca-e1489547582535.jpg">
-    </div>
-
-    <section id="inputs">
-
-        <input type="text" id="pesquisaCep" placeholder="digite seu cep">
-        <input type="submit" id="btnProcurar" value="Procurar">
-    </section>
-
-    <table id="tabela">
-        <thead id="th">
-            <tr>
-                <th>cep</th>
-                <th>logradouro</th>
-                <th>complemento</th>
-                <th>bairro</th>
-                <th>localidade</th>
-                <th>uf</th>
-                <th>unidade</th>
-                <th>ibge</th>
-                <th>gia</th>
-            </tr>
-        </thead>
-        <tbody id="tabela-corpo">
-
-        </tbody>
-
-
-
-        <script>
+        <section id="title-section"> 
+            
+            <h1 class="title">Busque seu CEP</h1>
+        </section>
+        
+        <div  id="img">
+            <img  src="http://sga.sites.uff.br/wp-content/uploads/sites/136/2017/03/barra-branca-e1489547582535.jpg">
+        </div>
+        
+        <section id="inputs">
+            
+            <input type="text" id="pesquisaCep" placeholder="digite seu cep">
+            <input type="submit" id="btnProcurar" value="Procurar">
+        </section>
+        
+        <table id="tabela">
+            <thead id="th">
+                <tr>
+                    <th>cep</th>
+                    <th>logradouro</th>
+                    <th>complemento</th>
+                    <th>bairro</th>
+                    <th>localidade</th>
+                    <th>uf</th>
+                    <th>unidade</th>
+                    <th>ibge</th>
+                    <th>gia</th>
+                </tr>
+            </thead>
+            <tbody id="tabela-corpo">
+                
+            </tbody>
+        </table>
+            
+            
+        </div>
+            <script>
             const pesquisaCep = document.querySelector('#pesquisaCep');
             const btnProcurar = document.querySelector('#btnProcurar');
             const tabela_corpo = document.querySelector('#tabela-corpo');

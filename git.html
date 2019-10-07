@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>git kkk</title>
+</head>
+<body>
+    <h1>busque seu nome de usuário</h1>
+    <form>
+
+    <input id="pesquisaGit" type="text" />
+    <input id="btnProcurar" type="submit" value="procurar" />
+    </form>
+
+
+    <table>
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>node_id</th>
+          <th>name</th>
+          <th>full_name</th>
+          <th>private</th>
+          <th>owner</th>
+        </tr>
+      </thead>
+
+      <tbody id="tabelaGit">
+        
+            
+        
+      </tbody>
+    </table>
+
+
+
+    <script>
+        const pesquisaGit = document.querySelector('#pesquisaGit');
+        const btnProcurar = document.querySelector('#btnProcurar');
+        const tabelaGit = document.querySelector('#tabelaGit');
+
+        btnProcurar.addEventListener('click', function(event){
+            let url ="https://api.github.com/users/"+pesquisaGit.value+"/repos";
+
+            fetch(url)
+            .then(response => response.json())
+            .then(data => construirTabela(data))
+            .catch(erro => console.log(erro));
+
+
+        });
+
+        function construirTabela(repos) {
+            const tr = document.createElement('tr');
+            const td_id = document.createElement('td');
+            
+            const td_nome = document.createElement('td');
+            const td_descricao = document.createElement('td');
+            const td_data = document.createElement('td');
+            const td_size = document.createElement('td');
+            const td_owner = document.createElement('table')
+
+            td_id.textContent = repos.id;
+            
+            td_nome.textContent = repos.name;
+            td_descricao.textContent = repos.description;
+            td_data.textContent = repos.created_at;
+            td_size = repos.size;
+            td_owner.textContent = repos.owner.login;
+
+            tr.appendChild(td_id);
+           
+            tr.appendChild(td_nome);
+            tr.appendChild(td_descricao);
+            tr.appendChild(td_data);
+            tr.appendChild(td_size);
+            tabelaGit.appendChild(tr);
+        }
+
+    </script>
+</body>
+</html>
